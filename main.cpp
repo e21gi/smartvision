@@ -69,52 +69,70 @@ void LWG_Button(string str, Point button_location) //버튼을 만들어주고, 각과 길�
 	if (str == "hand1") //손모양이 1이면 
 	{	
 		for (int i = 1; i <= 3; i++) //3번 반복
+		{
+			if (i == 3) //만약i가 3이면
 			{
-				if (i == 3) //만약i가 3이면
+				for (int j = 1; j <= 5; j++) //5번 반복
 				{
-					for (int j = 1; j <= 5; j++) //5번 반복
+					mybutton.drawButton(Point(60 * j + 5, 60 * i + 10), string_text[count], 255, 255, 0); 
+					//영소문자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
+					thispos.push_back(Point(60 * j + 5, 60 * i + 10)); 
+					//각각 키보드의 위치를 push_back을 이용해 저장
+					for (int h = 0; h < thispos.size(); h++) 
+					//키보드의 위치 만큼 반복
 					{
-						mybutton.drawButton(Point(60 * j + 5, 60 * i + 10), string_text[count], 255, 255, 0); //영소문자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
-						thispos.push_back(Point(60 * j + 5, 60 * i + 10)); //각각 키보드의 위치를 push_back을 이용해 저장
-						for (int h = 0; h < thispos.size(); h++) //키보드의 위치 만큼 반복
-						{
-							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
-								&& button_location.y <= thispos[h].y + 50)) //손 끝점과 해당 키보드 자판의 위치가 같으면 실행
-								if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) //각도와 거리가 값과 모두 일치하면 실행
-								{
-									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); //해당 버튼의 색을 다르게 출력하고 입력으로 판단
-									str_last = string_text[h]; //현재 입력되고 있는 자판의 문자를 가져옴
-									putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); //그 문자를 출력창에 표시
-								}
-								else //아니면
-									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 255, 128, 0); //가리키고 있는 버튼의 색을 다르게 출력
-						}
-						count++; //count 1증가
+						if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
+							&& button_location.y <= thispos[h].y + 50)) 
+							//손 끝점과 해당 키보드 자판의 위치가 같으면 실행
+							if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) 
+							//각도와 거리가 값과 모두 일치하면 실행
+							{
+								mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); 
+								//해당 버튼의 색을 다르게 출력하고 입력으로 판단
+								str_last = string_text[h]; 
+								//현재 입력되고 있는 자판의 문자를 가져옴
+								putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); 
+								//그 문자를 출력창에 표시
+							}
+							else //아니면
+								mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 255, 128, 0); 
+								//가리키고 있는 버튼의 색을 다르게 출력
 					}
-				}
-				else //아니면
-				{
-					for (int j = 1; j <= 10; j++) //10번 반복
-					{
-						mybutton.drawButton(Point(60 * j + 5, 60 * i + 10), string_text[count], 255, 255, 0); //영소문자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
-						thispos.push_back(Point(60 * j + 5, 60 * i + 10)); //각각 키보드의 위치를 push_back을 이용해 저장
-						for (int h = 0; h < thispos.size(); h++) //키보드의 위치의 수 만큼 반복
-						{
-							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
-								&& button_location.y <= thispos[h].y + 50)) //손 끝점과 해당 키보드 자판의 위치가 같으면 실행
-								if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) //각도와 거리가 값과 모두 일치하면 실행
-								{
-									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); //해당 버튼의 색을 다르게 출력하고 입력으로 판단
-									str_last = string_text[h]; //현재 입력되고 있는 자판의 문자를 가져옴
-									putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); //그 문자를 출력창에 표시
-								}
-								else //아니면
-									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 255, 128, 0); //가리키고 있는 버튼의 색을 다르게 출력
-						}
-						count++; //count 1증가
-					}
+					count++; //count 1증가
 				}
 			}
+			else //아니면
+			{
+				for (int j = 1; j <= 10; j++) //10번 반복
+				{
+					mybutton.drawButton(Point(60 * j + 5, 60 * i + 10), string_text[count], 255, 255, 0); 
+					//영소문자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
+					thispos.push_back(Point(60 * j + 5, 60 * i + 10)); 
+					//각각 키보드의 위치를 push_back을 이용해 저장
+					for (int h = 0; h < thispos.size(); h++) 
+					//키보드의 위치의 수 만큼 반복
+					{
+						if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
+							&& button_location.y <= thispos[h].y + 50)) 
+							//손 끝점과 해당 키보드 자판의 위치가 같으면 실행
+							if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) 
+							//각도와 거리가 값과 모두 일치하면 실행
+							{
+								mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); 
+								//해당 버튼의 색을 다르게 출력하고 입력으로 판단
+								str_last = string_text[h]; 
+								//현재 입력되고 있는 자판의 문자를 가져옴
+								putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); 
+								//그 문자를 출력창에 표시
+							}
+							else //아니면
+								mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 255, 128, 0); 
+								//가리키고 있는 버튼의 색을 다르게 출력
+					}
+					count++; //count 1증가
+				}
+			}
+		}
 	}
 	else if (str == "hand2") //손모양이 2이면
 	{
@@ -122,20 +140,29 @@ void LWG_Button(string str, Point button_location) //버튼을 만들어주고, 각과 길�
 		{
 			for (int j = 1; j <= 3; j++) //3번 반복
 			{
-				mybutton.drawButton(Point(100 * j + 5, 60 * i + 10), string_num[count], 255, 255, 0); //숫자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
-				thispos.push_back(Point(100 * j + 5, 60 * i + 10)); //각각 키보드의 위치를 push_back을 이용해 저장
-				for (int h = 0; h < thispos.size(); h++) //키보드의 위치의 수 만큼 반복
+				mybutton.drawButton(Point(100 * j + 5, 60 * i + 10), string_num[count], 255, 255, 0); 
+				//숫자 버튼을 만들고 해당 버튼이 무슨버튼인지 문자 출력
+				thispos.push_back(Point(100 * j + 5, 60 * i + 10)); 
+				//각각 키보드의 위치를 push_back을 이용해 저장
+				for (int h = 0; h < thispos.size(); h++) 
+				//키보드의 위치의 수 만큼 반복
 				{
 					if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
-						&& button_location.y <= thispos[h].y + 50)) //손 끝점과 해당 키보드 자판의 위치가 같으면 실행
-						if ((d_abrad > -0.7 && d_abrad < -0.35) && (d_distance > 150.0 && d_distance < 200.0)) //각도와 거리가 값과 모두 일치하면 실행
+						&& button_location.y <= thispos[h].y + 50)) 
+						//손 끝점과 해당 키보드 자판의 위치가 같으면 실행
+						if ((d_abrad > -0.7 && d_abrad < -0.35) && (d_distance > 150.0 && d_distance < 200.0)) 
+						//각도와 거리가 값과 모두 일치하면 실행
 						{
-							mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_num[h], 0, 255, 255); //해당 버튼의 색을 다르게 출력하고 입력으로 판단
-							str_last = string_num[h]; //현재 입력되고 있는 자판의 문자를 가져옴
-							putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); //그 문자를 출력창에 표시
+							mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_num[h], 0, 255, 255); 
+							//해당 버튼의 색을 다르게 출력하고 입력으로 판단
+							str_last = string_num[h]; 
+							//현재 입력되고 있는 자판의 문자를 가져옴
+							putText(frame, str_last, Point(100 + 15, 400 + 25), FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 0)); 
+							//그 문자를 출력창에 표시
 						}
 						else
-							mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_num[h], 255, 128, 0); //가리키고 있는 버튼의 색을 다르게 출력
+							mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_num[h], 255, 128, 0); 
+							//가리키고 있는 버튼의 색을 다르게 출력
 				}
 				count++; //count 1증가
 			}
