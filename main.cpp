@@ -78,7 +78,8 @@ void LWG_Button(string str, Point button_location) //¹öÆ°À» ¸¸µé¾îÁÖ°í, °¢°ú ±æÀ
 						thispos.push_back(Point(60 * j + 5, 60 * i + 10)); //°¢°¢ Å°º¸µåÀÇ À§Ä¡¸¦ push_backÀ» ÀÌ¿ëÇØ ÀúÀå
 						for (int h = 0; h < thispos.size(); h++) //Å°º¸µåÀÇ À§Ä¡ ¸¸Å­ ¹Ýº¹
 						{
-							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y && button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
+							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
+								&& button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
 								if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) //°¢µµ¿Í °Å¸®°¡ °ª°ú ¸ðµÎ ÀÏÄ¡ÇÏ¸é ½ÇÇà
 								{
 									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); //ÇØ´ç ¹öÆ°ÀÇ »öÀ» ´Ù¸£°Ô Ãâ·ÂÇÏ°í ÀÔ·ÂÀ¸·Î ÆÇ´Ü
@@ -99,7 +100,8 @@ void LWG_Button(string str, Point button_location) //¹öÆ°À» ¸¸µé¾îÁÖ°í, °¢°ú ±æÀ
 						thispos.push_back(Point(60 * j + 5, 60 * i + 10)); //°¢°¢ Å°º¸µåÀÇ À§Ä¡¸¦ push_backÀ» ÀÌ¿ëÇØ ÀúÀå
 						for (int h = 0; h < thispos.size(); h++) //Å°º¸µåÀÇ À§Ä¡ÀÇ ¼ö ¸¸Å­ ¹Ýº¹
 						{
-							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y && button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
+							if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
+								&& button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
 								if ((d_abrad > -1.1 && d_abrad < -0.7) && (d_distance > 120.0 && d_distance < 140.0)) //°¢µµ¿Í °Å¸®°¡ °ª°ú ¸ðµÎ ÀÏÄ¡ÇÏ¸é ½ÇÇà
 								{
 									mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_text[h], 0, 255, 255); //ÇØ´ç ¹öÆ°ÀÇ »öÀ» ´Ù¸£°Ô Ãâ·ÂÇÏ°í ÀÔ·ÂÀ¸·Î ÆÇ´Ü
@@ -124,7 +126,8 @@ void LWG_Button(string str, Point button_location) //¹öÆ°À» ¸¸µé¾îÁÖ°í, °¢°ú ±æÀ
 				thispos.push_back(Point(100 * j + 5, 60 * i + 10)); //°¢°¢ Å°º¸µåÀÇ À§Ä¡¸¦ push_backÀ» ÀÌ¿ëÇØ ÀúÀå
 				for (int h = 0; h < thispos.size(); h++) //Å°º¸µåÀÇ À§Ä¡ÀÇ ¼ö ¸¸Å­ ¹Ýº¹
 				{
-					if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y && button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
+					if ((thispos[h].x <= button_location.x && button_location.x <= thispos[h].x + 50) && (thispos[h].y <= button_location.y 
+						&& button_location.y <= thispos[h].y + 50)) //¼Õ ³¡Á¡°ú ÇØ´ç Å°º¸µå ÀÚÆÇÀÇ À§Ä¡°¡ °°À¸¸é ½ÇÇà
 						if ((d_abrad > -0.7 && d_abrad < -0.35) && (d_distance > 150.0 && d_distance < 200.0)) //°¢µµ¿Í °Å¸®°¡ °ª°ú ¸ðµÎ ÀÏÄ¡ÇÏ¸é ½ÇÇà
 						{
 							mybutton.drawButton(Point(thispos[h].x, thispos[h].y), string_num[h], 0, 255, 255); //ÇØ´ç ¹öÆ°ÀÇ »öÀ» ´Ù¸£°Ô Ãâ·ÂÇÏ°í ÀÔ·ÂÀ¸·Î ÆÇ´Ü
